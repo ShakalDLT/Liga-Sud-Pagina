@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guilty Gear Sud League - Panel de Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html">
+                <img src="imagenes/logo.png" alt="Logo" class="logo">
+            </a>
+        </div>
+    </nav>
+
+    <header class="banner">
+        <img src="imagenes/fondo.png" alt="Banner" class="banner-img">
+        <div class="banner-overlay">
+            <img src="imagenes/logo.png" alt="Logo" class="banner-logo-floating">
+        </div>
+    </header>
+
+    <section class="teams-section">
+        <div class="team-row">
+            <div class="team-card"><img src="imagenes/equipo1.png"><p>SHMALOOGLES</p></div>
+            <div class="team-card"><img src="imagenes/equipo2.png"><p>Los Mas Poronga</p></div>
+            <div class="team-card"><img src="imagenes/equipo3.png"><p>Goontastic 4</p></div>
+        </div>
+
+        <div class="team-row">
+            <div class="team-card"><img src="imagenes/equipo4.png"><p>Los Inkers</p></div>
+            <div class="team-card"><img src="imagenes/equipo5.png"><p>PermaPlus</p></div>
+        </div>
+
+        <div class="team-row">
+            <div class="team-card"><img src="imagenes/equipo6.png"><p>Asi Que Esta Es La Calle</p></div>
+            <div class="team-card"><img src="imagenes/equipo7.png"><p>Inmaculado Neutral</p></div>
+            <div class="team-card"><img src="imagenes/equipo8.png"><p>Goonthom-SE</p></div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <div class="table-section">
+            <div class="table-header-flex">
+                <h2>Registro de Rondas</h2>
+                <div class="buttons-group">
+                    <button class="btn-add" onclick="addNewRow()">+ Agregar Nueva Ronda</button>
+                    <button class="btn-add btn-clear" onclick="clearCombates()">🗑️ Limpiar Rondas</button>
+                </div>
+            </div>
+            
+            <table class="editable-table">
+                <thead>
+                    <tr>
+                        <th>Equipo 1</th>
+                        <th>VS</th>
+                        <th>Equipo 2</th>
+                        <th>Score</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="body-combates"></tbody>
+            </table>
+        </div>
+
+        <div class="table-section" style="margin-top: 80px;">
+            <div class="table-header-flex">
+                <h2>Tabla de Posiciones</h2>
+                <div class="buttons-group">
+                    <button class="btn-add" onclick="addLeaderboardRow()">+ Agregar Equipo</button>
+                    <button class="btn-add btn-clear" onclick="clearLeaderboard()">🗑️ Limpiar Tabla</button>
+                </div>
+            </div>
+            
+            <table class="editable-table">
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody id="body-leaderboard"></tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
