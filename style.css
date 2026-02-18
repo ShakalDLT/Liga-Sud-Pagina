@@ -10,7 +10,6 @@
     --border-color: #2a2a2a;
 }
 
-/* Fondo con patrón repetible */
 .bg-pattern {
     position: fixed;
     top: 0;
@@ -19,7 +18,6 @@
     height: 100%;
     background-image: url('imagenes/patron.jpg');
     background-repeat: repeat;
-    background-size: auto;
     opacity: 0.15;
     z-index: -1;
     pointer-events: none;
@@ -28,24 +26,14 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial Black', Gadget, sans-serif;
+    font-family: 'Arial Black', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
     overflow-x: hidden;
 }
 
-/* --- QUITAR FLECHAS DE INPUTS NUMÉRICOS --- */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 /* =========================================
-   2. BARRA DE NAVEGACIÓN
+   2. BARRA DE NAVEGACIÓN Y BANNER
    ========================================= */
 .navbar {
     background-color: #000;
@@ -70,13 +58,10 @@ input[type=number] {
 
 .logo { height: 35px; }
 
-/* =========================================
-   3. BANNER
-   ========================================= */
 .banner {
     margin-top: 60px;
     width: 100%;
-    height: 450px;
+    height: 300px;
     position: relative;
     background-color: #000;
 }
@@ -85,7 +70,7 @@ input[type=number] {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .banner-logo-floating {
@@ -93,63 +78,142 @@ input[type=number] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 380px;
-    filter: drop-shadow(0 0 20px rgba(255, 0, 85, 0.4));
+    max-height: 200px;
+    filter: drop-shadow(0 0 15px var(--accent));
 }
 
 /* =========================================
-   4. SECCIÓN EQUIPOS (3-2-3)
+   3. GALERÍA DE EQUIPOS (RESTABLECIDA)
    ========================================= */
 .teams-section {
-    padding: 60px 0;
+    padding: 40px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    border-top: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    margin: 40px 0;
+    gap: 25px;
     background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
 }
 
 .team-row {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .team-card {
     text-align: center;
-    width: 220px;
+    width: 180px;
+    transition: transform 0.3s ease;
 }
 
 .team-card img {
     width: 100%;
-    height: 150px;
+    height: 130px;
     object-fit: cover;
-    border: 3px solid #ffffff; 
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.team-card:hover img {
-    border-color: var(--accent);
-    transform: scale(1.05);
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .team-card p {
     margin-top: 10px;
-    font-size: 0.9em;
+    font-size: 0.85em;
     text-transform: uppercase;
     color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card:hover img {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* =========================================
+   4. RULETA DE SORTEO
+   ========================================= */
+.roulette-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(180deg, rgba(255,0,85,0.1) 0%, rgba(0,0,0,0.6) 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.slot {
+    width: 280px;
+    height: 180px;
+    background: #000;
+    border: 3px solid var(--secondary);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.slot img {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.slot p, .slot h3 {
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: 100%;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+.slot h3 {
+    font-size: 18px;
+    color: var(--secondary);
+    text-shadow: 0 0 5px rgba(0,255,204,0.5);
+}
+
+.vs-text {
+    font-size: 3rem;
+    font-style: italic;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.spinning {
+    animation: shake 0.1s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    50% { transform: translate(-1px, -2px) rotate(-1deg); }
+    100% { transform: translate(1px, 1px) rotate(0deg); }
 }
 
 /* =========================================
    5. TABLAS Y CONTENEDORES
    ========================================= */
 .container {
-    padding: 50px 5%;
+    padding: 40px 5%;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -159,7 +223,7 @@ input[type=number] {
     padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
@@ -174,12 +238,11 @@ h2 {
     color: var(--accent);
     text-transform: uppercase;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.3em;
     border-left: 5px solid var(--accent);
     padding-left: 15px;
 }
 
-/* BOTONES */
 .btn-add {
     border: none;
     padding: 12px 20px;
@@ -193,11 +256,9 @@ h2 {
     transition: 0.2s;
 }
 
-.btn-add:hover { transform: translateY(-2px); filter: brightness(1.2); }
-
+.btn-add:hover { filter: brightness(1.2); transform: translateY(-2px); }
 .btn-clear { background: #333; margin-left: 10px; }
 
-/* ESTILOS TABLA */
 .editable-table {
     width: 100%;
     border-collapse: collapse;
@@ -222,7 +283,7 @@ h2 {
     background: rgba(255, 255, 255, 0.03);
     cursor: pointer;
     position: relative;
-    min-width: 250px;
+    min-width: 220px;
 }
 
 .cell-content {
@@ -233,29 +294,27 @@ h2 {
 }
 
 .table-img {
-    width: 50px; 
-    height: 50px;
+    width: 45px; 
+    height: 45px;
     object-fit: cover;
     border-radius: 4px;
     border: 1px solid #fff;
 }
 
-/* INPUT DE PUNTAJE (SOLO ESTE QUEDA) */
 .score-input {
     background: #000;
     border: 1px solid var(--accent);
     color: var(--secondary);
     font-weight: bold;
     text-align: center;
-    padding: 10px;
+    padding: 8px;
     border-radius: 4px;
-    outline: none;
-    width: 90px;
+    width: 80px;
     font-size: 16px;
 }
 
 /* =========================================
-   6. DROPDOWN (EL LISTADO) CORREGIDO
+   6. MENÚ DESPLEGABLE (TEAM SELECTOR)
    ========================================= */
 .team-menu {
     display: none;
@@ -266,9 +325,8 @@ h2 {
     background: #111;
     border: 2px solid var(--accent);
     z-index: 2000;
-    max-height: 300px;
+    max-height: 250px;
     overflow-y: auto;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
 }
 
 .team-menu.active { display: block; }
@@ -276,30 +334,20 @@ h2 {
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 12px;
-    gap: 20px;
+    padding: 10px;
+    gap: 12px;
     cursor: pointer;
     border-bottom: 1px solid #222;
-    transition: 0.2s;
 }
 
-.menu-item:hover { background: var(--accent); color: #fff; }
+.menu-item:hover { background: var(--accent); }
 
 .menu-item img {
-    width: 60px; /* Imagen grande en el listado */
-    height: 60px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.2);
 }
 
-.menu-item span {
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-/* BOTÓN ELIMINAR */
 .btn-delete-row {
     background: #ff4444;
     color: white;
@@ -307,5 +355,4 @@ h2 {
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
 }

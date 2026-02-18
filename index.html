@@ -24,33 +24,44 @@
             <img src="imagenes/logo.png" alt="Logo" class="banner-logo-floating">
         </div>
     </header>
-
-    <section class="teams-section">
-        <div class="team-row">
-            <div class="team-card"><img src="imagenes/equipo1.png"><p>SHMALOOGLES</p></div>
-            <div class="team-card"><img src="imagenes/equipo2.png"><p>Los Mas Poronga</p></div>
-            <div class="team-card"><img src="imagenes/equipo3.png"><p>Goontastic 4</p></div>
-        </div>
-
-        <div class="team-row">
-            <div class="team-card"><img src="imagenes/equipo4.png"><p>Los Inkers</p></div>
-            <div class="team-card"><img src="imagenes/equipo5.png"><p>PermaPlus</p></div>
-        </div>
-
-        <div class="team-row">
-            <div class="team-card"><img src="imagenes/equipo6.png"><p>Asi Que Esta Es La Calle</p></div>
-            <div class="team-card"><img src="imagenes/equipo7.png"><p>Inmaculado Neutral</p></div>
-            <div class="team-card"><img src="imagenes/equipo8.png"><p>Goonthom-SE</p></div>
-        </div>
-    </section>
-
+<section class="teams-section">
+    <div class="team-row">
+        <div class="team-card"><img src="imagenes/equipo1.png"><p>SHMALOOGLES</p></div>
+        <div class="team-card"><img src="imagenes/equipo2.png"><p>Los Mas Poronga</p></div>
+        <div class="team-card"><img src="imagenes/equipo3.png"><p>Goontastic 4</p></div>
+        <div class="team-card"><img src="imagenes/equipo4.png"><p>Los Inkers</p></div>
+    </div>
+    <div class="team-row">
+        <div class="team-card"><img src="imagenes/equipo5.png"><p>PermaPlus</p></div>
+        <div class="team-card"><img src="imagenes/equipo6.png"><p>Asi Que Esta Es La Calle</p></div>
+        <div class="team-card"><img src="imagenes/equipo7.png"><p>Inmaculado Neutral</p></div>
+        <div class="team-card"><img src="imagenes/equipo8.png"><p>Goonthom-SE</p></div>
+    </div>
+</section>
     <main class="container">
         
-        <div class="table-section">
+        <section class="table-section">
+            <h2>Sorteo de Matchmaking</h2>
+            <div class="roulette-display">
+                <div id="slot1" class="slot">
+                    <div class="slot-placeholder">Equipo 1</div>
+                </div>
+                <div class="vs-text">VS</div>
+                <div id="slot2" class="slot">
+                    <div class="slot-placeholder">Equipo 2</div>
+                </div>
+            </div>
+            <div class="buttons-group" style="justify-content: center; display: flex; margin-top: 20px;">
+                <button class="btn-add" onclick="spinRoulette()">🎰 Girar Ruleta</button>
+                <button class="btn-add btn-clear" onclick="resetMatchHistory()">🔄 Reiniciar Historial</button>
+            </div>
+        </section>
+
+        <section class="table-section">
             <div class="table-header-flex">
                 <h2>Registro de Rondas</h2>
                 <div class="buttons-group">
-                    <button class="btn-add" onclick="addNewRow()">+ Agregar Nueva Ronda</button>
+                    <button class="btn-add" onclick="addNewRow()">+ Agregar Manual</button>
                     <button class="btn-add btn-clear" onclick="clearCombates()">🗑️ Limpiar Rondas</button>
                 </div>
             </div>
@@ -67,9 +78,9 @@
                 </thead>
                 <tbody id="body-combates"></tbody>
             </table>
-        </div>
+        </section>
 
-        <div class="table-section" style="margin-top: 80px;">
+        <section class="table-section" style="margin-top: 80px;">
             <div class="table-header-flex">
                 <h2>Tabla de Posiciones</h2>
                 <div class="buttons-group">
@@ -87,7 +98,7 @@
                 </thead>
                 <tbody id="body-leaderboard"></tbody>
             </table>
-        </div>
+        </section>
 
     </main>
 
